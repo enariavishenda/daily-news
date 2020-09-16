@@ -8,7 +8,9 @@ import {
     deleteNews,
     logIn,
     authCreate,
-    authUpdate
+    authUpdate,
+    loginError,
+    passwordError
 } from './action'
 
 export {
@@ -21,5 +23,7 @@ export {
     deleteNews,
     logIn,
     authCreate,
-    authUpdate
+    authUpdate,
+    loginError,
+    passwordError
 }

@@ -1,3 +1,5 @@
+import correctUser from "../utils/is-user";
+
 export const newsRequested = () => {
     return {
         type: 'NEWS_REQUEST'
@@ -63,3 +65,18 @@ export const authUpdate = () => {
     }
 }
 
+export const loginError = () => {
+    return {
+        type: 'LOGIN_ERROR'
+    }
+}
+export const passwordError = () => {
+    return {
+        type: 'PASSWORD_ERROR'
+    }
+}
+
+export const isUser = (user) => (dispatch) => {
+    const users = [['Admin', '54321', true], ['Женя','12345']]
+    correctUser(user, dispatch, ...users[0])
+}
