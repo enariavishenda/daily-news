@@ -1,7 +1,7 @@
 import reducer from "./reducer";
 import {createStore, compose, applyMiddleware} from "redux";
 import thunkMiddleware from "redux-thunk";
-import {authCreate, isUser} from "./actions/action";
+import {isUser} from "./actions";
 
 const logMiddleware = ({getState}) => (next) => (action) => {
     console.log(action.type, getState())
@@ -14,6 +14,6 @@ const middleware = composeEnhancer(applyMiddleware(thunkMiddleware,logMiddleware
 
 const store = createStore(reducer, middleware)
 
-store.dispatch(isUser({login:'Admin', password: '54321'}))
+store.dispatch(isUser({login:'Женя', password: '12345'}))
 
 export default store

@@ -1,19 +1,31 @@
 import {authCreate, authUpdate, logIn, loginError, passwordError} from "../actions";
 
-const correctUser = (user, dispatch, login, password, admin) => {
+const correctUser = (user, dispatch, getState, itemlogin, itempassword, itemadmin) => {
     switch (user.login) {
-        case login:
+        case itemlogin:
             switch (user.password) {
-                case password:
+                case itempassword:
                     dispatch(logIn(user))
-                    dispatch(admin ? authUpdate() : authCreate())
+                    dispatch(itemadmin ? authUpdate() : authCreate())
                     break
                 default:
                     dispatch(passwordError())
-                    break
             }
             break
-        default: dispatch(loginError())
+        default:
+        {
+            if (typeof getState().error === 'string' || getState().error instanceof String)
+            {
+                if (getState().login.isAuth) {
+                    console.log('1')
+                }
+                console.log('2')
+            }
+            if (!(typeof getState().error === 'string' || getState().error instanceof String)) {
+                console.log('3')
+                dispatch(loginError())
+            }
+        }
     }
 }
 

@@ -7,10 +7,12 @@ import {
     approveNews,
     deleteNews,
     logIn,
+    outLogin,
     authCreate,
     authUpdate,
     loginError,
-    passwordError
+    passwordError,
+    isUser
 } from './action'
 
 export {
@@ -22,8 +24,10 @@ export {
     approveNews,
     deleteNews,
     logIn,
+    outLogin,
     authCreate,
     authUpdate,
     loginError,
-    passwordError
+    passwordError,
+    isUser
 }

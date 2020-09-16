@@ -7,6 +7,10 @@ const authError = (state, action) => {
             return 'Неверный логин'
         case 'PASSWORD_ERROR':
             return 'Неверный пароль'
+        case 'USERS_ERROR':
+            return 'Нет доступа к списку пользователей'
+        case 'CLEAR':
+            return
         default:
             return state.error
     }

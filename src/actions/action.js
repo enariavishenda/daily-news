@@ -1,4 +1,5 @@
 import correctUser from "../utils/is-user";
+import UsersService from "../services/users";
 
 export const newsRequested = () => {
     return {
@@ -53,6 +54,10 @@ export const logIn = (user) => {
     }
 }
 
+export const outLogin = () => (dispatch) => {
+    dispatch(logIn({}))
+}
+
 export const authCreate = () => {
     return {
         type: 'AUTH_USER'
@@ -76,7 +81,22 @@ export const passwordError = () => {
     }
 }
 
-export const isUser = (user) => (dispatch) => {
-    const users = [['Admin', '54321', true], ['Женя','12345']]
-    correctUser(user, dispatch, ...users[0])
+export const usersError = (error) => {
+    return {
+        type: 'USERS_ERROR',
+        payload: error
+    }
+}
+
+export const isUser = (user) => (dispatch, getState) => {
+    const users = new UsersService()
+    users.getUsers()
+        .then((data) => data.map((item) => {
+            if (!getState().login.isAuth)
+                return correctUser(user, dispatch, getState, item.login, item.password, item.admin)
+        }))
+            .catch((err) => {
+                console.log(err)
+                dispatch(usersError())
+            })
 }
