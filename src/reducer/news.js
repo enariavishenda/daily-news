@@ -28,7 +28,11 @@ const updateNews = (state, action) => {
                 error: action.payload
             }
         case 'ADD_NEWS':
-            return addNewsList(state, action.payload)
+            return {
+                news: addNewsList(state, action.payload),
+                loading: false,
+                error: false
+            }
         case 'UPDATE_NEWS':
             return {
                 news: [],
@@ -37,7 +41,7 @@ const updateNews = (state, action) => {
             }
         case 'DELETE_NEWS':
             return {
-                news: [],
+                news: delNewsList(state, action.payload),
                 loading: false,
                 error: false
             }
@@ -47,14 +51,17 @@ const updateNews = (state, action) => {
 }
 
 const addNewsList = (state, addNews) => {
-
-    const {news: { news } } = state
-
-    return {
-        news: news,
-        loading: false,
-        error: false
-    }
+    const {news: {news}} = state
+    return [...news, addNews]
 }
+
+const delNewsList = (state, delNewsId) => {
+    const {news: {news}} = state
+    const id_i = news.findIndex(({id}) => id === delNewsId);
+    return [...news.slice(0, id_i), ...news.slice(id_i + 1)]
+
+}
+
+
 
 export default updateNews

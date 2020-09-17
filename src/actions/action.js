@@ -41,10 +41,10 @@ export const approveNews = (approveNews) => {
     }
 }
 
-export const deleteNews = (delNews) => {
+export const deleteNews = (delNewsId) => {
     return {
         type: 'DELETE_NEWS',
-        payload: delNews
+        payload: delNewsId
     }
 }
 
