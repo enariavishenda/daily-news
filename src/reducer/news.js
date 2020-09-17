@@ -4,7 +4,7 @@ const updateNews = (state, action) => {
         return {
             news: [],
             loading: true,
-            error: null
+            error: null,
         }
     }
 
@@ -13,13 +13,13 @@ const updateNews = (state, action) => {
             return {
                 news: [],
                 loading: true,
-                error: null
+                error: false
             }
         case 'NEWS_SUCCESS':
             return {
                 news: action.payload,
                 loading: false,
-                error: null
+                error: false
             }
         case 'NEWS_FAILURE':
             return {
@@ -27,10 +27,34 @@ const updateNews = (state, action) => {
                 loading: false,
                 error: action.payload
             }
+        case 'ADD_NEWS':
+            return addNewsList(state, action.payload)
+        case 'UPDATE_NEWS':
+            return {
+                news: [],
+                loading: false,
+                error: false
+            }
+        case 'DELETE_NEWS':
+            return {
+                news: [],
+                loading: false,
+                error: false
+            }
         default:
             return state.news
     }
+}
 
+const addNewsList = (state, addNews) => {
+
+    const {news: { news } } = state
+
+    return {
+        news: news,
+        loading: false,
+        error: false
+    }
 }
 
 export default updateNews

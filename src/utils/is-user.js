@@ -5,27 +5,18 @@ const correctUser = (user, dispatch, getState, itemlogin, itempassword, itemadmi
         case itemlogin:
             switch (user.password) {
                 case itempassword:
+                    dispatch({type: 'CLEAR'})
                     dispatch(logIn(user))
                     dispatch(itemadmin ? authUpdate() : authCreate())
                     break
                 default:
+                    dispatch({type: 'CLEAR'})
                     dispatch(passwordError())
             }
             break
         default:
-        {
-            if (typeof getState().error === 'string' || getState().error instanceof String)
-            {
-                if (getState().login.isAuth) {
-                    console.log('1')
-                }
-                console.log('2')
-            }
-            if (!(typeof getState().error === 'string' || getState().error instanceof String)) {
-                console.log('3')
-                dispatch(loginError())
-            }
-        }
+        if (getState().error.password && !getState().login.isAuth) {return}
+        else {dispatch(loginError())}
     }
 }
 

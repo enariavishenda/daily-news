@@ -22,13 +22,14 @@ export const newsError = (error) => {
     }
 }
 
-export const getNews = () => (dispatch) => {
+export const getNews = (books) => (dispatch) => {
     dispatch(newsRequested())
+    dispatch(newsLoaded(books))
 }
 
 export const createNews = (addNews) => {
     return {
-        type: 'UPDATE_NEWS',
+        type: 'ADD_NEWS',
         payload: addNews
     }
 }
@@ -42,7 +43,7 @@ export const approveNews = (approveNews) => {
 
 export const deleteNews = (delNews) => {
     return {
-        type: 'UPDATE_NEWS',
+        type: 'DELETE_NEWS',
         payload: delNews
     }
 }
@@ -99,4 +100,11 @@ export const isUser = (user) => (dispatch, getState) => {
                 console.log(err)
                 dispatch(usersError())
             })
+}
+
+export const seeSearch = (search) =>  {
+    return {
+        type: 'SEARCH',
+        payload: search
+    }
 }

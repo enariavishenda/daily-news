@@ -12,7 +12,8 @@ import {
     authUpdate,
     loginError,
     passwordError,
-    isUser
+    isUser,
+    seeSearch
 } from './action'
 
 export {
@@ -29,5 +30,6 @@ export {
     authUpdate,
     loginError,
     passwordError,
-    isUser
+    isUser,
+    seeSearch
 }

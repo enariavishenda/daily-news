@@ -4,11 +4,17 @@ const authError = (state, action) => {
     }
     switch (action.type) {
         case 'LOGIN_ERROR':
-            return 'Неверный логин'
+            return {
+                login: 'Неверный логин'
+            }
         case 'PASSWORD_ERROR':
-            return 'Неверный пароль'
+            return {
+                password: 'Неверный пароль'
+            }
         case 'USERS_ERROR':
-            return 'Нет доступа к списку пользователей'
+            return {
+                login: 'Нет доступа к списку пользователей'
+            }
         case 'CLEAR':
             return
         default:
