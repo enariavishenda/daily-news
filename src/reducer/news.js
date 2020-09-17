@@ -75,7 +75,4 @@ const approveNewsItem = (state, approveNewsId) => {
     return toggleProperty(news, approveNewsId,'done')
 }
 
-
-
-
 export default updateNews

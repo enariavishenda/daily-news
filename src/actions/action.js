@@ -22,9 +22,9 @@ export const newsError = (error) => {
     }
 }
 
-export const getNews = (books) => (dispatch) => {
+export const getNews = (news) => (dispatch) => {
     dispatch(newsRequested())
-    dispatch(newsLoaded(books))
+    dispatch(newsLoaded(news))
 }
 
 export const createNews = (addNews) => {

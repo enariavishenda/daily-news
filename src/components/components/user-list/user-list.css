@@ -1,0 +1,29 @@
+.news-li {
+    margin: 15px 0;
+}
+
+.news-list-item {
+    display: flex;
+    margin: 15px 0;
+}
+
+.news-list-item .news-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    align-items: flex-start;
+}
+.news-list-item .news-details .news-title {
+    font-size: 1.9rem;
+    color: #008bb9;
+}
+.news-list-item .news-details .news-text {
+    font-size: 1.2rem;
+}
+.news-list-item .news-details .news-data {
+    font-size: 0.7rem;
+}
+.news-list-item .news-details .button-list {
+    margin: 5px 0;
+}
