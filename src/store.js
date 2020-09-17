@@ -1,7 +1,7 @@
 import reducer from "./reducer";
 import {createStore, compose, applyMiddleware} from "redux";
 import thunkMiddleware from "redux-thunk";
-import {createNews, deleteNews, getNews} from "./actions";
+import {approveNews, createNews, deleteNews, getNews} from "./actions";
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
@@ -20,6 +20,7 @@ store.dispatch(getNews(
 
 store.dispatch(createNews({id: 50, title: 'очень холодна', text:'Ежегодно на зимовку улетают птицы...',date: new Date(), author: 'NoName', done: true}))
 
-store.dispatch(deleteNews(10))
+store.dispatch(deleteNews(30))
+
 
 export default store

@@ -29,19 +29,19 @@ const updateNews = (state, action) => {
             }
         case 'ADD_NEWS':
             return {
-                news: addNewsList(state, action.payload),
+                news: addNewsItem(state, action.payload),
                 loading: false,
                 error: false
             }
-        case 'UPDATE_NEWS':
+        case 'APPROVE_NEWS':
             return {
-                news: [],
+                news: approveNewsItem(state, action.payload),
                 loading: false,
                 error: false
             }
         case 'DELETE_NEWS':
             return {
-                news: delNewsList(state, action.payload),
+                news: delNewsItem(state, action.payload),
                 loading: false,
                 error: false
             }
@@ -50,17 +50,31 @@ const updateNews = (state, action) => {
     }
 }
 
-const addNewsList = (state, addNews) => {
+const addNewsItem= (state, addNews) => {
     const {news: {news}} = state
     return [...news, addNews]
 }
 
-const delNewsList = (state, delNewsId) => {
+const delNewsItem = (state, delNewsId) => {
     const {news: {news}} = state
     const id_i = news.findIndex(({id}) => id === delNewsId);
     return [...news.slice(0, id_i), ...news.slice(id_i + 1)]
 
 }
+
+const toggleProperty = (arr, id, propName) => {
+    const id_i = arr.findIndex((el) => el.id ===id)
+    const oldItem = arr[id_i]
+    const newItem = {...oldItem,
+        [propName]: !oldItem[propName]}
+    return [...arr.slice(0, id_i), newItem, ...arr.slice(id_i+1)]
+}
+
+const approveNewsItem = (state, approveNewsId) => {
+    const {news: {news}} = state
+    return toggleProperty(news, approveNewsId,'done')
+}
+
 
 
 

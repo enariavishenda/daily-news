@@ -34,10 +34,10 @@ export const createNews = (addNews) => {
     }
 }
 
-export const approveNews = (approveNews) => {
+export const approveNews = (approveNewsId) => {
     return {
-        type: 'UPDATE_NEWS',
-        payload: approveNews
+        type: 'APPROVE_NEWS',
+        payload: approveNewsId
     }
 }
 
