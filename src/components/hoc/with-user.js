@@ -35,7 +35,7 @@ const withUser = (View) => {
         }
 
         render() {
-            const {news, loading, error, login} = this.props
+            const {news, loading, error, login, create} = this.props
             if (loading) {
                 return <Loading/>
             }
@@ -47,6 +47,7 @@ const withUser = (View) => {
                          login={login}
                          addNews={this.inputSubmit}
                          inputChange={this.inputChange}
+                         create={create}
             />
         }
     }

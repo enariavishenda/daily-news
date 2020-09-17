@@ -9,7 +9,10 @@ import UserList from "../../components/user-list/user-list";
 
 const UserPage = ({...props}) => {
 
-    const {news, addNews, login, inputChange, state} = props
+    const {news, addNews, login, inputChange, state, create} = props
+    if (!create) {
+        return ''
+    }
     return (
         <div className="card bg-light mb-3">
             <div className="card-header"><h3>Напишите свою новость</h3></div>
@@ -23,12 +26,13 @@ const UserPage = ({...props}) => {
     )
 }
 
-const mapStateToProps = ({news: {news, error, loading}, login: {user:{login}}}) => {
+const mapStateToProps = ({news: {news, error, loading}, login: {user:{login}}, auth:{create}}) => {
     return {
         news,
         error,
         loading,
         login,
+        create
     }
 }
 

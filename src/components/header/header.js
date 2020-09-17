@@ -29,6 +29,9 @@ class Header extends Component {
     onLogout = (e) => {
         e.preventDefault()
         this.props.outLogin()
+        this.setState({
+            close: false
+        })
     }
     onLogin = (e) => {
         e.preventDefault()
@@ -36,17 +39,6 @@ class Header extends Component {
             login: this.state.login,
             password: this.state.password
         })
-        if (!this.props.passwordError || !this.props.loginError) {
-            this.setState({
-                close: true
-            })
-        }
-        else {
-            this.setState({
-                close: false
-            })
-        }
-
     }
 
 
@@ -106,7 +98,7 @@ class Header extends Component {
                                         data-dismiss="modal">Отмена
                                 </button>
                                 <button type="button" className="btn btn-primary text-center"
-                                        data-dismiss={this.state.close ? 'modal' : ''} onClick={this.onLogin}>Войти
+                                        data-dismiss='modal' onClick={this.onLogin}>Войти
                                 </button>
                             </div>
                         </div>

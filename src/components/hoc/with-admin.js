@@ -13,7 +13,7 @@ const withAdmin = (View) => {
             this.props.deleteNews(id)
         }
         render() {
-            const {news, loading, error} = this.props
+            const {news, loading, error, update} = this.props
             if (loading) {
                 return <Loading/>
             }
@@ -23,6 +23,7 @@ const withAdmin = (View) => {
             return <View news={news}
                          updNews={this.buttonApprove}
                          delNews={this.buttonDelete}
+                         update={update}
             />
         }
     }

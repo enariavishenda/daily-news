@@ -11,8 +11,10 @@ import {getNews, approveNews, deleteNews} from "../../../actions";
 
 const AdminPage = ({...props}) => {
 
-    const {news, updNews, delNews} = props
-
+    const {news, updNews, delNews, update} = props
+    if (!update) {
+        return ''
+    }
     return (
         <div className="card bg-light mb-3">
             <div className="card-header"><h3 className="text-center" >Страница администратора</h3></div>
@@ -26,11 +28,12 @@ const AdminPage = ({...props}) => {
     )
 }
 
-const mapStateToProps = ({news: {news, error, loading} }) => {
+const mapStateToProps = ({news: {news, error, loading}, auth:{update} }) => {
     return {
         news,
         error,
-        loading
+        loading,
+        update
     }
 }
 
