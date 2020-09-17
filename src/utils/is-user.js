@@ -15,7 +15,7 @@ const correctUser = (user, dispatch, getState, itemlogin, itempassword, itemadmi
             }
             break
         default:
-        if (getState().error.password && !getState().login.isAuth) {return}
+        if (getState().error.passwordError && !getState().login.isAuth) {return}
         else {dispatch(loginError())}
     }
 }

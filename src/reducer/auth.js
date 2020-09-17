@@ -16,6 +16,11 @@ const authReducer = (state, action) => {
                 create: false,
                 update: true
             }
+        case 'AUTH_CLEAR':
+            return {
+                create: false,
+                update: false
+            }
         default:
             return state.auth
     }

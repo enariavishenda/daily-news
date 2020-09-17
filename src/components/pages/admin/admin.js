@@ -14,12 +14,14 @@ const AdminPage = ({...props}) => {
     const {news, updNews, delNews} = props
 
     return (
-        <div className="jumbotron text-center">
-            <h3>Страница администратора</h3>
-            <AdminList news={news}
+        <div className="card bg-light mb-3">
+            <div className="card-header"><h3 className="text-center" >Страница администратора</h3></div>
+            <div className="card-body">
+                <AdminList news={news}
                        delNews={delNews}
                        updNews={updNews}
             />
+            </div>
         </div>
     )
 }

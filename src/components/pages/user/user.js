@@ -11,8 +11,8 @@ const UserPage = ({...props}) => {
 
     const {news, addNews, login, inputChange, state} = props
     return (
-        <div className="jumbotron text-center">
-            <h3>Напишите свою новость</h3>
+        <div className="card bg-light mb-3">
+            <div className="card-header"><h3>Напишите свою новость</h3></div>
             <UserList news={news}
                       state={state}
                       login={login}

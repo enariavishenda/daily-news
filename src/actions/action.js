@@ -56,6 +56,7 @@ export const logIn = (user) => {
 }
 
 export const outLogin = () => (dispatch) => {
+    dispatch(authClear())
     dispatch(logIn({}))
 }
 
@@ -68,6 +69,12 @@ export const authCreate = () => {
 export const authUpdate = () => {
     return {
         type: 'AUTH_ADMIN'
+    }
+}
+
+export const authClear = () => {
+    return {
+        type: 'AUTH_CLEAR'
     }
 }
 

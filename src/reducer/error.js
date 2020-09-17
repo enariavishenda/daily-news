@@ -1,6 +1,9 @@
 const authError = (state, action) => {
     if (state === undefined) {
-        return {}
+        return {
+            loginError: '',
+            passwordError: ''
+        }
     }
     switch (action.type) {
         case 'LOGIN_ERROR':
@@ -16,7 +19,10 @@ const authError = (state, action) => {
                 loginError: 'Нет доступа к списку пользователей'
             }
         case 'CLEAR':
-            return
+            return {
+                loginError: '',
+                passwordError: ''
+            }
         default:
             return state.error
     }

@@ -17,9 +17,7 @@ const HomePage = ({...props}) => {
 }
 
 const mapStateToProps = ({login: {user:{login}}}) => {
-    return {
-        login
-    }
+    return {login}
 }
 
 export default compose(

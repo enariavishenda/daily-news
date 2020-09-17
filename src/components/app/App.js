@@ -9,6 +9,7 @@ import HomePage from "../pages/home";
 import Header from "../header/header";
 import AdminPage from "../pages/admin/admin";
 import UserPage from "../pages/user/user";
+import NewsPage from "../pages/news/news";
 
 function App() {
     return (
@@ -17,7 +18,7 @@ function App() {
                 <Header />
                 <Switch>
                     <Route path="/" exact component={HomePage}/>
-                    <Route path="/news" exact component={() => {}}/>
+                    <Route path="/news" exact component={NewsPage}/>
                     <Route path="/admin" exact component={AdminPage}/>
                     <Route path="/user" exact component={UserPage}/>
                     <Route render={() => {
